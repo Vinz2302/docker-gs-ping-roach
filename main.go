@@ -136,3 +136,11 @@ func countRecords(db *sql.DB) (int, error) {
 
 	return count, nil
 }
+
+//build
+//docker build --tag docker-gs-ping-roach .
+//docker container stop rest-server roach
+//docker run -d --name roach --hostname db --network mynet -p 26257:26257 -p 8080:8080 -v roach:/cockroach/cockroach-data cockroachdb/cockroach:latest-v20.1 start-single-node --insecure
+//docker run -it --rm -d --network mynet --name rest-server -p 80:8080 -e PGUSER=totoro -e PGPASSWORD=myfriend -e PGHOST=db -e PGPORT=26257 -e PGDATABASE=mydb docker-gs-ping-roach
+
+//& curl.exe --request POST --url http://localhost/send --header 'content-type: application/json' --data '{\"value\": \"Hello, Docker!\"}'
