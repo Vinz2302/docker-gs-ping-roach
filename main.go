@@ -143,6 +143,10 @@ func countRecords(db *sql.DB) (int, error) {
 //docker run -d --name roach --hostname db --network mynet -p 26257:26257 -p 8080:8080 -v roach:/cockroach/cockroach-data cockroachdb/cockroach:latest-v20.1 start-single-node --insecure
 //docker run -it --rm -d --network mynet --name rest-server -p 80:8080 -e PGUSER=totoro -e PGPASSWORD=myfriend -e PGHOST=db -e PGPORT=26257 -e PGDATABASE=mydb docker-gs-ping-roach
 
+//TEST BUDIBASE
+//docker run -d --name roachbudi --hostname db --network budibase_default -p 26257:26257 -p 8080:8080 -v roach:/cockroach/cockroach-data cockroachdb/cockroach:latest-v20.1 start-single-node --insecure
+//docker run -it --rm -d --network budibase_default --name rest-server -p 80:8080 -e PGUSER=totoro -e PGPASSWORD=myfriend -e PGHOST=db -e PGPORT=26257 -e PGDATABASE=mydb docker-gs-ping-roach
+
 //docker container list
 //docker container stop
 //docker container rm
@@ -155,9 +159,10 @@ func countRecords(db *sql.DB) (int, error) {
 //show grants on database mydb to totoro;
 
 //& curl.exe --request POST --url http://localhost/send --header 'content-type: application/json' --data '{\"value\": \"Hello, Docker!\"}'
+//curl --request POST --url http://localhost/send --header 'Content-Type: application/json' --data '{"value": "Hello, Docker!"}'
 
 //docker compose config
 //docker compose up --build
 
 //detached mode
-//docker compost up --build -d
+//docker compose up --build -d
